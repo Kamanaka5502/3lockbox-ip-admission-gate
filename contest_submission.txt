@@ -1,0 +1,8 @@
+PROJECT TITLE
+3LOCKBOX — Deterministic IP Admission Gate
+
+SHORT DESCRIPTION
+3LOCKBOX turns IP2Location.io geolocation evidence into enforceable ADMIT, REVIEW, or REFUSE decisions. Each evaluation applies a deterministic policy to IP evidence and emits a replayable SHA-256 decision receipt.
+
+SOURCE CODE URL
+https://github.com/Kamanaka5502/3lockbox-ip-admission-gate
