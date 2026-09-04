@@ -5,3 +5,4 @@ __pycache__/
 .env
 data/receipts/*.json
 !data/receipts/.gitkeep
+data/ledger.ndjson
