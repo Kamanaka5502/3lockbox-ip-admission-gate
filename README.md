@@ -5,6 +5,18 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.116-009688)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+## Live deployment
+
+**Public demo:** https://threelockbox-ip-admission-gate.onrender.com
+
+**Interactive API:** https://threelockbox-ip-admission-gate.onrender.com/docs
+
+**Health / runtime state:** https://threelockbox-ip-admission-gate.onrender.com/health
+
+The public Render deployment runs from `main` and is pinned to Python 3.12 for reproducible builds.
+
+---
+
 **IP intelligence should not merely describe a connection. It should govern whether that connection is allowed to matter.**
 
 3LOCKBOX is an enforcement layer built on **IP2Location.io**. It converts live IP geolocation/security evidence into one of three governed consequences:
@@ -365,11 +377,11 @@ IP geolocation becomes an **admission primitive** rather than a passive lookup r
 
 ### Functionality
 
-The repository is a runnable application: browser console, REST API, gateway enforcement, persistence, deterministic replay, audit ledger, Docker, OpenAPI, tests, and CI.
+The repository is a runnable application: browser console, REST API, gateway enforcement, persistence, deterministic replay, audit ledger, Docker, OpenAPI, tests, CI, and a public deployment.
 
 ### Evaluation surface
 
-A judge can move from clone to verified behavior quickly, while the browser interface exposes the complete consequence lifecycle visually.
+A judge can move from public URL to verified behavior immediately, while the browser interface exposes the complete consequence lifecycle visually.
 
 ---
 
