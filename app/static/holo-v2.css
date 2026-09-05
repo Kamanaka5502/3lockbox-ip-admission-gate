@@ -1,0 +1,78 @@
+/* 3LOCKBOX Holographic Console V2 — immersive depth / boundary intelligence */
+:root{--tilt-x:0deg;--tilt-y:0deg;--parallax-x:0px;--parallax-y:0px}
+.core-stage{height:610px;perspective:1500px;isolation:isolate}
+.core-stage::before{width:88%;filter:blur(22px)}
+.core-stage::after{bottom:34px;width:82%;height:38px;filter:blur(14px)}
+
+/* Global wireframe field */
+.world-field{position:absolute;inset:7% 1% 9%;z-index:0;transform-style:preserve-3d;transform:translateZ(-170px) rotateX(6deg);pointer-events:none;opacity:.78;transition:filter .35s ease,opacity .35s ease}
+.world-field svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(var(--state-rgb),.12))}
+.world-outline{fill:rgba(var(--state-rgb),.025);stroke:rgba(var(--state-rgb),.25);stroke-width:1.15;vector-effect:non-scaling-stroke}
+.world-grid{fill:none;stroke:rgba(var(--state-rgb),.13);stroke-width:.7;vector-effect:non-scaling-stroke;stroke-dasharray:2 5}
+.world-equator{fill:none;stroke:rgba(var(--state-rgb),.36);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:5 5}
+.world-scan{fill:none;stroke:rgba(var(--state-rgb),.52);stroke-width:1.2;stroke-dasharray:5 16;filter:drop-shadow(0 0 5px var(--state));animation:worldSweep 7.5s linear infinite}
+body[data-state="ADMIT"] .world-field{filter:drop-shadow(0 0 22px rgba(97,255,177,.12))}
+body[data-state="REVIEW"] .world-field{filter:drop-shadow(0 0 24px rgba(255,208,103,.14))}
+body[data-state="REFUSE"] .world-field{filter:drop-shadow(0 0 28px rgba(255,98,122,.18))}
+
+/* Interactive extremities, positioned on the map plane */
+.map-node,.boundary-hotspot{position:absolute;z-index:7;border:0;background:transparent;color:var(--muted);cursor:pointer;transform-style:preserve-3d;padding:0;font:inherit}
+.map-node{width:17px;height:17px;border-radius:50%;border:1px solid rgba(var(--state-rgb),.62);background:rgba(3,10,17,.76);box-shadow:0 0 0 5px rgba(var(--state-rgb),.05),0 0 16px rgba(var(--state-rgb),.24);pointer-events:auto;transition:.22s ease}
+.map-node::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--state);box-shadow:0 0 12px var(--state)}
+.map-node::before{content:attr(aria-label);position:absolute;left:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.52rem;font-weight:900;letter-spacing:.08em;color:rgba(210,240,250,.55);opacity:0;transition:.2s ease;text-shadow:0 0 10px #000}
+.map-node:hover,.map-node:focus-visible,.map-node.active{transform:scale(1.4) translateZ(60px);border-color:var(--state);box-shadow:0 0 0 8px rgba(var(--state-rgb),.08),0 0 28px rgba(var(--state-rgb),.55);outline:none}
+.map-node:hover::before,.map-node:focus-visible::before,.map-node.active::before{opacity:1}
+.map-n1{left:17%;top:34%}.map-n2{left:29%;top:24%}.map-n3{left:42%;top:47%}.map-n4{left:58%;top:28%}.map-n5{left:69%;top:42%}.map-n6{left:79%;top:59%}.map-n7{left:53%;top:69%}.map-n8{left:34%;top:66%}
+
+/* Orbital symbolic execution field */
+.math-field{position:absolute;inset:0;z-index:3;transform-style:preserve-3d;pointer-events:none}
+.math-token{position:absolute;left:50%;top:50%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(.52rem,.8vw,.72rem);letter-spacing:.04em;color:rgba(191,239,250,.48);white-space:nowrap;text-shadow:0 0 11px rgba(var(--state-rgb),.26);transform-style:preserve-3d;transition:color .18s ease,text-shadow .18s ease,opacity .18s ease;opacity:.72}
+.math-token strong{color:var(--state);font-weight:900}
+.math-token.active{color:#effcff;opacity:1;text-shadow:0 0 16px rgba(var(--state-rgb),.7),0 0 36px rgba(var(--state-rgb),.35)}
+.math-a{animation:mathOrbitA var(--dur,17s) linear infinite;transform-origin:0 0}
+.math-b{animation:mathOrbitB var(--dur,23s) linear infinite reverse;transform-origin:0 0}
+.math-c{animation:mathOrbitC var(--dur,29s) linear infinite;transform-origin:0 0}
+.math-ticker{position:absolute;left:50%;top:50%;z-index:8;transform:translate(-50%,155px) translateZ(100px);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:78%;pointer-events:none}
+.math-ticker span{border:1px solid rgba(var(--state-rgb),.16);background:rgba(2,8,14,.58);padding:5px 8px;border-radius:999px;font-family:ui-monospace,monospace;font-size:.5rem;color:rgba(210,245,255,.64);letter-spacing:.05em;backdrop-filter:blur(7px)}
+.math-ticker em{font-style:normal;color:var(--state)}
+
+/* Deep multi-shell reactor */
+.holo-shell{position:absolute;left:50%;top:50%;border-radius:50%;transform-style:preserve-3d;pointer-events:none;mix-blend-mode:screen}
+.shell-outer{width:292px;height:292px;margin:-146px 0 0 -146px;border:1px solid rgba(var(--state-rgb),.28);background:radial-gradient(circle at 31% 26%,rgba(255,255,255,.08),transparent 24%),radial-gradient(circle,transparent 58%,rgba(var(--state-rgb),.08) 74%,transparent 76%);box-shadow:inset 18px -8px 42px rgba(var(--state-rgb),.08),0 0 42px rgba(var(--state-rgb),.11);animation:shellBreathe 4.8s ease-in-out infinite;transform:translateZ(28px)}
+.shell-mid{width:252px;height:252px;margin:-126px 0 0 -126px;border:1px dashed rgba(var(--state-rgb),.25);background:repeating-radial-gradient(circle,transparent 0 17px,rgba(var(--state-rgb),.035) 18px 19px);animation:shellSpin 18s linear infinite;transform:translateZ(44px) rotateX(64deg)}
+.shell-front{width:230px;height:230px;margin:-115px 0 0 -115px;border-top:1px solid rgba(255,255,255,.5);border-right:1px solid rgba(var(--state-rgb),.42);filter:drop-shadow(0 0 12px rgba(var(--state-rgb),.22));animation:shellSpin 12s linear infinite reverse;transform:translateZ(76px) rotateY(72deg)}
+.orb{width:230px;height:230px;z-index:6;transform:translateZ(72px);box-shadow:0 0 44px rgba(var(--state-rgb),.42),0 0 130px rgba(var(--state-rgb),.18),inset 0 0 58px rgba(var(--state-rgb),.23)}
+.orb::before{content:"";position:absolute;inset:12%;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.16),transparent 22%),repeating-radial-gradient(circle,transparent 0 14px,rgba(var(--state-rgb),.05) 15px 16px);animation:innerTurn 13s linear infinite}
+.orb::after{content:"";position:absolute;inset:-14%;border-radius:50%;border:1px solid rgba(var(--state-rgb),.13);box-shadow:inset 0 0 28px rgba(var(--state-rgb),.08);animation:orbHalo 2.6s ease-in-out infinite}
+.orb-core{width:68px;height:68px;position:relative;z-index:4}
+.orb-label{z-index:5}
+
+/* Boundary intelligence satellites */
+.boundary-hotspot{min-width:112px;padding:8px 9px;border:1px solid rgba(var(--state-rgb),.19);border-radius:10px;background:rgba(2,8,14,.65);backdrop-filter:blur(9px);font-size:.55rem;font-weight:900;letter-spacing:.08em;color:rgba(210,240,250,.64);text-align:left;transition:.22s ease;box-shadow:0 10px 35px rgba(0,0,0,.28)}
+.boundary-hotspot::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;background:var(--state);box-shadow:0 0 10px var(--state)}
+.boundary-hotspot small{display:block;margin:3px 0 0 13px;color:rgba(130,160,180,.62);font-size:.47rem;letter-spacing:.05em}
+.boundary-hotspot:hover,.boundary-hotspot:focus-visible,.boundary-hotspot.active{color:#effcff;border-color:var(--state);box-shadow:0 0 0 1px rgba(var(--state-rgb),.12),0 0 30px rgba(var(--state-rgb),.23);transform:translateZ(95px) scale(1.05);outline:none}
+.bh-1{left:0%;top:6%}.bh-2{right:-1%;top:8%}.bh-3{left:-2%;top:47%}.bh-4{right:-3%;top:46%}.bh-5{left:5%;bottom:5%}.bh-6{right:4%;bottom:3%}
+
+.boundary-card{position:absolute;right:2%;bottom:2%;z-index:12;width:min(390px,86%);border:1px solid rgba(var(--state-rgb),.35);border-radius:14px;background:linear-gradient(180deg,rgba(5,16,28,.94),rgba(2,8,14,.9));backdrop-filter:blur(18px);box-shadow:0 22px 70px rgba(0,0,0,.5),0 0 35px rgba(var(--state-rgb),.1);padding:15px 16px;opacity:0;pointer-events:none;transform:translateY(12px) translateZ(120px) scale(.98);transition:.22s ease}
+.boundary-card.visible{opacity:1;pointer-events:auto;transform:translateY(0) translateZ(120px) scale(1)}
+.boundary-card .bc-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.boundary-card .bc-kicker{font-size:.52rem;letter-spacing:.15em;font-weight:1000;color:var(--state)}.boundary-card h3{margin:3px 0 7px;font-size:1.05rem}.boundary-card button{border:1px solid var(--line);background:rgba(3,9,15,.62);color:var(--muted);width:30px;height:30px;border-radius:8px;cursor:pointer}.boundary-card dl{display:grid;grid-template-columns:112px 1fr;gap:6px 10px;margin:10px 0 0}.boundary-card dt{font-size:.55rem;font-weight:900;letter-spacing:.07em;color:var(--muted);text-transform:uppercase}.boundary-card dd{margin:0;font-size:.68rem;line-height:1.45;color:#d8e8f0}.boundary-card .blindspot{margin-top:11px;padding:9px 10px;border-left:2px solid var(--state);background:rgba(var(--state-rgb),.055);font-size:.64rem;line-height:1.45;color:#dbeaf1}.boundary-card .bc-foot{margin-top:8px;color:rgba(150,180,195,.58);font-size:.48rem;letter-spacing:.06em;text-transform:uppercase}
+
+body.field-intensity .ring{filter:drop-shadow(0 0 9px var(--state));animation-duration:4s!important}
+body.field-intensity .math-token{opacity:1}
+body.field-intensity .world-scan{stroke-width:2;animation-duration:2.3s}
+body.field-intensity .orb{transform:translateZ(105px) scale(1.05)}
+
+@keyframes worldSweep{to{stroke-dashoffset:-210}}
+@keyframes mathOrbitA{from{transform:rotate(0deg) translateX(var(--radius,230px)) rotate(0deg) translateZ(var(--depth,0px))}to{transform:rotate(360deg) translateX(var(--radius,230px)) rotate(-360deg) translateZ(var(--depth,0px))}}
+@keyframes mathOrbitB{from{transform:rotate(0deg) translateY(var(--radius,260px)) rotate(0deg) translateZ(var(--depth,20px))}to{transform:rotate(360deg) translateY(var(--radius,260px)) rotate(-360deg) translateZ(var(--depth,20px))}}
+@keyframes mathOrbitC{from{transform:rotate(0deg) translateX(var(--radius,300px)) rotate(0deg) translateZ(var(--depth,-20px))}to{transform:rotate(-360deg) translateX(var(--radius,300px)) rotate(360deg) translateZ(var(--depth,-20px))}}
+@keyframes shellBreathe{0%,100%{transform:translateZ(28px) scale(.98);opacity:.62}50%{transform:translateZ(45px) scale(1.045);opacity:1}}
+@keyframes shellSpin{to{rotate:1turn}}
+@keyframes innerTurn{to{transform:rotate(360deg)}}
+@keyframes orbHalo{0%,100%{transform:scale(.96);opacity:.36}50%{transform:scale(1.08);opacity:.86}}
+
+.motion-paused .math-token,.motion-paused .world-scan,.motion-paused .holo-shell{animation-play-state:paused!important}
+@media(max-width:1000px){.core-stage{height:560px}.bh-1,.bh-2{top:1%}.bh-3{left:0}.bh-4{right:0}.boundary-hotspot{min-width:98px}.world-field{inset:9% 0 12%}}
+@media(max-width:720px){.core-stage{height:520px}.world-field{opacity:.55}.math-token:nth-child(n+9){display:none}.boundary-hotspot{min-width:0;width:38px;height:38px;border-radius:50%;font-size:0;padding:0;text-align:center}.boundary-hotspot::before{margin:0}.boundary-hotspot small{display:none}.boundary-card{position:absolute;right:4%;left:4%;bottom:0;width:auto}.map-node::before{display:none}.math-ticker{transform:translate(-50%,145px) translateZ(100px);max-width:92%}}
+@media(prefers-reduced-motion:reduce){.math-token,.world-scan,.holo-shell{animation:none!important}.core-stage{transform:none!important}}
