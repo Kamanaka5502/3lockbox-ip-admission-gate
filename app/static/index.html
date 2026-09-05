@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#05070b">
 <title>3LOCKBOX — Holographic Admission Console</title>
 <link rel="stylesheet" href="/static/holo.css">
+<link rel="stylesheet" href="/static/holo-v2.css">
 </head>
 <body>
 <canvas id="particleField" aria-hidden="true"></canvas><div class="scanlines" aria-hidden="true"></div>
@@ -13,7 +14,75 @@
 <header class="topbar"><div><div class="brand">ELYRIA SYSTEMS / 3LOCKBOX</div><div class="tag">IP2Location.io evidence · deterministic consequence · replayable proof</div></div><div class="top-actions"><a class="ghost-link" href="/docs">OPENAPI</a><div class="live-pill"><span class="live-dot"></span>LIVE RUNTIME</div></div></header>
 <section class="hero">
 <div class="hero-copy"><div class="kicker">DETERMINISTIC NETWORK GOVERNANCE</div><h1>THE IP DOESN'T<br><span>GET THROUGH</span><br>UNTIL IT EARNS IT.</h1><p>IP2Location.io supplies the evidence. 3LOCKBOX binds the consequence. Every decision becomes a deterministic receipt and a tamper-evident event in the execution ledger.</p><div class="hero-actions"><button type="button" id="autopilot" class="primary">RUN HOLOGRAPHIC DEMO</button><button type="button" id="motionToggle" class="secondary">PAUSE MOTION</button></div></div>
-<div class="core-wrap" id="coreWrap" aria-label="Animated admission core"><div class="core-stage" id="coreStage"><div class="beam beam-a"></div><div class="beam beam-b"></div><div class="beam beam-c"></div><div class="ring ring-1"><i></i></div><div class="ring ring-2"><i></i></div><div class="ring ring-3"><i></i></div><div class="ring ring-4"><i></i></div><div class="orb" id="orb"><div class="orb-grid"></div><div class="orb-core"></div><div class="orb-scan"></div><div class="orb-label"><span id="orbState">STANDBY</span><strong>3LOCKBOX</strong></div></div><div class="sat sat-a"><b>EVIDENCE</b><span id="satEvidence">READY</span></div><div class="sat sat-b"><b>POLICY</b><span id="satPolicy">READY</span></div><div class="sat sat-c"><b>CONSEQUENCE</b><span id="satConsequence">UNBOUND</span></div><div class="sat sat-d"><b>PROOF</b><span id="satProof">WAITING</span></div></div><div class="core-caption"><span>MOVE POINTER / TILT FIELD</span><span id="coreTelemetry">FIELD COHERENCE 100%</span></div></div>
+<div class="core-wrap" id="coreWrap" aria-label="Animated admission core">
+  <div class="core-stage" id="coreStage">
+    <div class="world-field" id="worldField" aria-label="Global extremity boundary field">
+      <svg viewBox="0 0 760 430" role="img" aria-label="Stylized global boundary field">
+        <ellipse class="world-grid" cx="380" cy="215" rx="332" ry="174"/>
+        <ellipse class="world-grid" cx="380" cy="215" rx="332" ry="112"/>
+        <ellipse class="world-grid" cx="380" cy="215" rx="332" ry="55"/>
+        <path class="world-grid" d="M380 41 C305 95 305 335 380 389 M380 41 C455 95 455 335 380 389 M380 41 C225 105 225 325 380 389 M380 41 C535 105 535 325 380 389"/>
+        <path class="world-equator" d="M48 215 H712"/>
+        <path class="world-scan" d="M60 206 C160 122 279 131 361 205 S567 291 700 208"/>
+        <path class="world-outline" d="M88 150 L121 126 164 124 194 140 211 166 193 184 171 185 154 210 122 209 101 184 Z"/>
+        <path class="world-outline" d="M183 225 L205 238 218 271 209 312 191 346 172 310 164 270 Z"/>
+        <path class="world-outline" d="M329 132 L349 115 382 120 398 140 384 159 361 158 350 179 330 165 Z"/>
+        <path class="world-outline" d="M350 183 L389 180 419 205 413 248 388 298 357 274 342 224 Z"/>
+        <path class="world-outline" d="M404 126 L451 104 521 110 567 130 614 139 651 170 633 195 591 190 565 211 524 196 490 215 459 191 420 182 394 156 Z"/>
+        <path class="world-outline" d="M524 231 L556 219 586 237 580 270 548 282 519 260 Z"/>
+        <path class="world-outline" d="M624 281 L655 270 680 286 670 310 638 316 616 298 Z"/>
+      </svg>
+      <button type="button" class="map-node map-n1" data-boundary="candidate" aria-label="Pre-effect boundary"></button>
+      <button type="button" class="map-node map-n2" data-boundary="evidence" aria-label="Evidence normalization"></button>
+      <button type="button" class="map-node map-n3" data-boundary="threshold" aria-label="Admissibility threshold"></button>
+      <button type="button" class="map-node map-n4" data-boundary="policy" aria-label="Policy authority"></button>
+      <button type="button" class="map-node map-n5" data-boundary="consequence" aria-label="Consequence lock"></button>
+      <button type="button" class="map-node map-n6" data-boundary="proof" aria-label="Proof emission"></button>
+      <button type="button" class="map-node map-n7" data-boundary="ledger" aria-label="Ledger continuity"></button>
+      <button type="button" class="map-node map-n8" data-boundary="replay" aria-label="Replay integrity"></button>
+    </div>
+
+    <div class="math-field" id="mathField" aria-label="Symbolic execution field">
+      <span class="math-token math-a" data-stage="candidate" style="--radius:236px;--depth:46px;--dur:18s">x ∈ <strong>PublicIP</strong></span>
+      <span class="math-token math-b" data-stage="evidence" style="--radius:268px;--depth:-18px;--dur:24s">E = normalize(IP2Location(x))</span>
+      <span class="math-token math-c" data-stage="policy" style="--radius:304px;--depth:12px;--dur:31s">decision = Pᵥ(E)</span>
+      <span class="math-token math-a" data-stage="consequence" style="--radius:318px;--depth:-40px;--dur:27s">bind(c) ⇔ c ∈ {A,R,F}</span>
+      <span class="math-token math-b" data-stage="proof" style="--radius:342px;--depth:55px;--dur:34s">H_d = SHA256(request∥E∥rules∥Pᵥ∥c)</span>
+      <span class="math-token math-c" data-stage="proof" style="--radius:282px;--depth:74px;--dur:22s">Hₙ = SHA256(n∥H_d∥Hₙ₋₁)</span>
+      <span class="math-token math-a" data-stage="policy" style="--radius:374px;--depth:-70px;--dur:39s">risk(E) ≤ τ ⇒ eligible</span>
+      <span class="math-token math-b" data-stage="evidence" style="--radius:226px;--depth:90px;--dur:19s">∇ evidence · Σ rules · Π custody</span>
+      <span class="math-token math-c" data-stage="candidate" style="--radius:392px;--depth:-22px;--dur:41s">(lat,lon) · ASN · usage · threat</span>
+      <span class="math-token math-a" data-stage="proof" style="--radius:258px;--depth:120px;--dur:23s">replay(snapshot,Pᵥ) = H_d′</span>
+      <span class="math-token math-b" data-stage="consequence" style="--radius:354px;--depth:36px;--dur:36s">effect ← admitted(state)</span>
+      <span class="math-token math-c" data-stage="policy" style="--radius:246px;--depth:-96px;--dur:28s">authority ≠ evidence</span>
+    </div>
+
+    <div class="beam beam-a"></div><div class="beam beam-b"></div><div class="beam beam-c"></div>
+    <div class="ring ring-1"><i></i></div><div class="ring ring-2"><i></i></div><div class="ring ring-3"><i></i></div><div class="ring ring-4"><i></i></div>
+    <div class="holo-shell shell-outer"></div><div class="holo-shell shell-mid"></div><div class="holo-shell shell-front"></div>
+    <div class="orb" id="orb"><div class="orb-grid"></div><div class="orb-core"></div><div class="orb-scan"></div><div class="orb-label"><span id="orbState">STANDBY</span><strong>3LOCKBOX</strong></div></div>
+
+    <button type="button" class="boundary-hotspot bh-1" data-boundary="candidate">PRE-EFFECT<small>input custody</small></button>
+    <button type="button" class="boundary-hotspot bh-2" data-boundary="authority">AUTHORITY<small>policy custody</small></button>
+    <button type="button" class="boundary-hotspot bh-3" data-boundary="evidence">EVIDENCE<small>normalized truth</small></button>
+    <button type="button" class="boundary-hotspot bh-4" data-boundary="consequence">LOCK<small>effect binding</small></button>
+    <button type="button" class="boundary-hotspot bh-5" data-boundary="replay">REPLAY<small>historical truth</small></button>
+    <button type="button" class="boundary-hotspot bh-6" data-boundary="ledger">CONTINUITY<small>event custody</small></button>
+
+    <div class="sat sat-a"><b>EVIDENCE</b><span id="satEvidence">READY</span></div><div class="sat sat-b"><b>POLICY</b><span id="satPolicy">READY</span></div><div class="sat sat-c"><b>CONSEQUENCE</b><span id="satConsequence">UNBOUND</span></div><div class="sat sat-d"><b>PROOF</b><span id="satProof">WAITING</span></div>
+
+    <div class="math-ticker" aria-label="Symbolic visualization telemetry">
+      <span data-dynamic-math="∂Φ/∂t">∂Φ/∂t 0.0000</span><span data-dynamic-math="λ">λ 0.0000</span><span data-dynamic-math="μ">μ 0.0000</span><span data-dynamic-math="Ω">Ω 0.0000</span><span id="hashEcho">H_d awaiting proof</span>
+    </div>
+
+    <aside class="boundary-card" id="boundaryCard" aria-live="polite">
+      <div class="bc-top"><div><div class="bc-kicker">EXTREMITY / BOUNDARY INTELLIGENCE</div><h3 id="bcName">Boundary</h3></div><button type="button" id="bcClose" aria-label="Close boundary details">×</button></div>
+      <dl><dt>Purpose</dt><dd id="bcPurpose">—</dd><dt>Evidence</dt><dd id="bcEvidence">—</dd><dt>Consequence</dt><dd id="bcConsequence">—</dd><dt>Failure closure</dt><dd id="bcClosure">—</dd><dt>Math</dt><dd id="bcMath">—</dd></dl>
+      <div class="blindspot" id="bcBlind">—</div><div class="bc-foot">Hover field visualizes architectural boundaries; symbolic numeric motion is visual telemetry, not a backend measurement.</div>
+    </aside>
+  </div>
+  <div class="core-caption"><span>MOVE POINTER / TILT FIELD · HOVER EXTREMITIES FOR BOUNDARY INTELLIGENCE</span><span id="coreTelemetry">FIELD COHERENCE 100%</span></div>
+</div>
 </section>
 <section class="pipeline" aria-label="Admission lifecycle"><article class="stage-node" data-stage="candidate"><span>01</span><b>CANDIDATE</b><small>Public IP</small></article><div class="connector"></div><article class="stage-node" data-stage="evidence"><span>02</span><b>EVIDENCE</b><small>IP2Location.io</small></article><div class="connector"></div><article class="stage-node" data-stage="policy"><span>03</span><b>POLICY</b><small>Versioned rules</small></article><div class="connector"></div><article class="stage-node" data-stage="consequence"><span>04</span><b>CONSEQUENCE</b><small>ADMIT / REVIEW / REFUSE</small></article><div class="connector"></div><article class="stage-node" data-stage="proof"><span>05</span><b>PROOF</b><small>Receipt + ledger</small></article></section>
 <section class="control-grid">
@@ -22,4 +91,7 @@
 </section>
 <section class="lower-grid"><section class="glass panel rules-panel"><div class="panelhead"><div><div class="eyebrow">RULE FIRE FIELD</div><h2>Consequence reasoning</h2></div><div id="ruleCount" class="counter">0 RULES</div></div><div id="rules" class="rules-empty">No rule has fired. The runtime is waiting for an admissibility evaluation.</div></section><section class="glass panel ledger-panel"><div class="panelhead"><div><div class="eyebrow">PROOF STREAM</div><h2>Tamper-evident ledger</h2></div><button type="button" id="verifyLedger" class="tiny-button">VERIFY CHAIN</button></div><div id="ledgerStream" class="ledger-stream" aria-live="polite"><div class="ledger-entry muted"><span>000</span><code>waiting for event stream</code><b>STANDBY</b></div></div></section></section>
 <section class="system-foot"><div><span class="pulse"></span><b>IP2LOCATION.IO</b> EVIDENCE PROVIDER</div><div><b>3LOCKBOX POLICY</b> <span id="footPolicy">UNBOUND</span></div><div><b>OPENAPI</b> <a href="/docs">/docs</a></div><div><b>LEDGER VERIFY</b> <a href="/api/v1/ledger/verify">/api/v1/ledger/verify</a></div></section>
-</main><script src="/static/holo.js"></script></body></html>
+</main>
+<script src="/static/holo.js"></script>
+<script src="/static/holo-v2.js"></script>
+</body></html>
